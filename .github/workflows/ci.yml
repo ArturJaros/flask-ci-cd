@@ -10,25 +10,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+    - name: Install dependencies
+      run: pip install -r requirements.txt
 
-      - name: Verify pytest installation
-        run: pytest --version
+    - name: Verify pytest installation
+      run: pytest --version
 
-      - name: Run tests
-        run: pytest
+    - name: Run tests
+      run: pytest
 
-      - name: Display current directory
-        run: pwd
+    - name: Display current directory
+      run: pwd
 
-      - name: List files in current directory
-        run: ls
+    - name: List files in current directory
+      run: ls
+
