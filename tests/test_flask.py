@@ -1,6 +1,12 @@
-
-from app import hello
+from app import app
 import pytest
 
-def test_hello():
-    assert hello() == 'Hello, World!'
+@pytest.fixture
+def client():
+    with app.test_client() as client:
+        yield client
+
+def test_hello(client):
+    rv = client.get('/')
+    assert rv.data == b'Hello, World!'
+
