@@ -10,24 +10,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.10'
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.3'  # Zaktualizowana wersja Pythona
 
-    - name: Install dependencies
-      run: pip install -r requirements.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-    - name: Run tests
-      run: pytest
+      - name: Verify pytest installation
+        run: pytest --version
 
-    - name: Display current directory
-      run: pwd
+      - name: Run tests
+        run: pytest
 
-    - name: List files in current directory
-      run: ls
+      - name: Display current directory
+        run: pwd
+
+      - name: List files in current directory
+        run: ls
+
